@@ -1,0 +1,10 @@
+---
+- name: Ensure docker daemon options used (systemd)
+  template:
+    src: docker.conf
+    dest: /etc/systemd/system/multi-user.target.wants/docker.service
+    mode: 0644
+    owner: root
+    group: root
+  notify:
+    - restart docker

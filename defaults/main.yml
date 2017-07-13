@@ -1,0 +1,16 @@
+---
+# url of the repository key
+docker_apt_key_url: http://apt.dockerproject.org/gpg
+# apt repository key signature
+docker_apt_key_sig: 58118E89F3A912897C070ADBF76221572C52609D
+# url of the apt repository with docker packages
+docker_apt_repository: deb https://apt.dockerproject.org/repo {{ ansible_lsb.id|lower }}-{{ ansible_lsb.codename|lower }} main
+
+# can be latest, blank or contain specific version
+docker_compose_version: latest
+
+# group name used by docker
+docker_group: docker
+
+# users who will be added to docker group
+docker_users: {}

@@ -1,0 +1,19 @@
+---
+
+- name: Install dependencies
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - python-dev
+    - python-setuptools
+    - apt-transport-https
+    - ca-certificates
+
+- name: Install pip
+  easy_install:
+    name: pip
+
+- name: Install docker-py
+  pip:
+    name: docker-py
+    state: present

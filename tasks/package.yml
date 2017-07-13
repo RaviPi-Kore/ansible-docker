@@ -1,0 +1,17 @@
+---
+- name: Import the Docker repository key
+  apt_key:
+    id: "{{docker_apt_key_sig}}"
+    url: "{{docker_apt_key_url}}"
+    state: present
+  register: add_repository_key
+  ignore_errors: true
+
+- name: Add Docker repository to apt
+  apt_repository:
+    repo: "{{docker_apt_repository}}"
+    state: present
+
+- name: Install Docker package
+  apt:
+    name: docker-engine

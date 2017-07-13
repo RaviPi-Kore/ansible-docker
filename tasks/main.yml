@@ -1,0 +1,15 @@
+---
+- name: Ansible dependencies to work with Docker
+  include: ansible.yml
+
+- name: Docker package
+  include: package.yml
+
+- name: Update Docker daemon configuration
+  include: daemon.yml
+
+- name: Configure docker users
+  include: users.yml
+
+- name: Docker-compose
+  include: docker-compose.yml

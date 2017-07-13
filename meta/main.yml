@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  author: Illia Grybkov <illia@grybkov.com>
+  description: Install Docker and its dependencies
+
+  license: MIT
+
+  min_ansible_version: 2.2
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+
+  galaxy_tags:
+    - docker
+
+dependencies: []

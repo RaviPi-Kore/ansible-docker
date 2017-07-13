@@ -1,0 +1,16 @@
+---
+sudo: required
+language: python
+services:
+  - docker
+before_install:
+  - sudo apt-get -qq update
+install:
+  - pip install --upgrade ansible ansible-lint
+  - pip install docker-py
+  - pip install molecule --pre
+  # - pip install required driver (e.g. docker, python-vagrant, shade, boto, apache-libcloud)
+script:
+  # can't run systemd inside docker and therefore just checking a syntax correctness and best practices
+  - molecule lint
+#  - molecule test

@@ -1,0 +1,19 @@
+---
+
+- name: Validate docker-compose version
+  set_fact:
+    docker_compose_version: ""
+  when: docker_compose_version == "latest"
+
+- name: Install docker-compose (specific version)
+  pip:
+    name: docker-compose
+    version: "{{docker_compose_version}}"
+    state: present
+  when: docker_compose_version != "latest" and docker_compose_version != ""
+
+- name: Install docker-compose (latest version)
+  pip:
+    name: docker-compose
+    state: present
+  when: docker_compose_version == "latest" or docker_compose_version == ""
