@@ -12,4 +12,4 @@
   include: users.yml
 
 - name: Docker-compose
-  include: docker-compose.yml
+  include: compose.yml
